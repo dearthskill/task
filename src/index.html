@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task.rpg</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+    <div class="sidebar">
+        <div class="top">
+        <span id="dashboard">Dashboard</span>
+    <i class="fa fa-map-o" aria-hidden="true"></i>
+    </div>
+    <ul class="allTasks">
+        <li id="today">
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+            <span class="navText">Today</span>
+        </li>
+        <li id="tomo">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <span class="navText">Tomorrow</span>
+        </li>
+        <li id="thisWeek">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <span class="navText">This week</span>
+        </li>
+        <li id="planned">
+            <i class="fa fa-list-alt" aria-hidden="true"></i>
+            <span class="navText">Planned</span>
+        </li>
+        <li id="completed">
+            <i class="fa fa-chain-broken" aria-hidden="true"></i>
+            <span class="navText">Completed</span>
+        </li>
+    </ul>
+    <ul id="create">
+        <li id="projectCreator">+New Project</li>
+    </ul>
+    <ul class="assignment">
+    </ul>
+    </div>
+    <div class="page">
+        <div class="header">
+        <div class="main">
+            <div class="symbol">
+        <img src="./icons/logo.svg" class="logo">
+        Task.rpg
+        </div>
+        <button class="newTask">+New Task</button>
+        </div>
+        <div class="status">
+            <div class="completed">Completed</div>
+            <div class="pending">Pending</div>
+    </div>
+    </div>
+   <div class="content">
+</div>
+    <div id="overlay"></div>
+    <div id="modal">
+        <i class="fa fa-close" id="closeButton"></i>
+        <i class="fa fa-trash"></i>
+        <div class="title"> +New Task
+        </div>
+        <input type="text" name="name" id="name" placeholder="Name">
+        <textarea id="desc" placeholder="Description"></textarea>
+        <input type="date" id="date">
+        <select name="priority" id="priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="urgent">Urgent</option>
+        </select>
+        <button class="modalButton">Add Task</button>
+        </div>
+        <div class="tinyModal">
+            <input type="text" id="subgoalName" placeholder="subgoal name">
+            <button id="subGoalSave">save</button>
+        </div>
+        <div id="caution">
+            <div class="cautionText">Are you sure? This will delete the task!</div>
+            <div class="cautionButtons">
+                <button class="deleteTask">Delete</button>
+                <button class="keepTask">Keep</button>
+            </div>
+        </div>
+        <div id="addProject">
+            <span>Add a new project</span>
+            <input type="text" id="projectInput" placeholder="project name">
+            <div class="projectButtons">
+            <button class="cancel">Cancel</button>
+            <button class="add">Add</button>
+            </div>
+        </div>
+        <div id="projectEdit">
+            <i class="fa fa-trash" id="projectTrash"></i>
+            <span class="title">Project Details</span>
+            <div class="nameChange">
+            <input type="text" id="nameEdit" placeholder="Project name">
+            <button id="saveButton">Save</button>
+            </div>
+            <div class="goalCreate">
+                <input type="text" id="addGoal" placeholder="Sub goal name">
+                <button id="goalCreator">Add</button>
+            </div>
+            <div class="deleteGoal">
+                <select id="removeGoal"></select>
+                <button id="delete">Delete</button>
+            </div>
+            <button id="done">Done</button>
+        </div>
+    </div>
+</body>
+</html>

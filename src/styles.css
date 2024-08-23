@@ -1,0 +1,569 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #27272a;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container{
+    box-sizing: border-box;
+    display: flex;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.fa-map-o{
+    font-size: 25px;
+    /*left: 20px;
+    top: 20px;*/
+    left: 50%;
+    position: absolute;
+    color: #fda4af;
+}
+
+.page{
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: content-box;
+    min-height: 100vh;
+    top: 0;
+    left: 80px;
+    width: calc(100% - 80px);
+    transition: left 0.4s ease, width 0.4s ease;
+}
+
+.sidebar.active + .page{
+    left: 225px;
+    width: calc(100% - 225px);
+}
+
+.symbol{
+    font-size: 35px;
+    color: #fda4af;
+    font-weight: 500;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo{
+   position: relative;
+   top: 10px;
+    height: 40px;
+    width: auto;
+    filter: invert(100%) sepia(3%) saturate(13%) hue-rotate(127deg) brightness(106%) contrast(105%);
+}
+
+.completed, .pending{
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border-radius: 20px;
+    height: 50px;
+    width: 130px;
+    background-color: #fda4af;
+    margin: 10px;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.header{
+   /* position: relative;
+    left: 70px;*/
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.newTask, .modalButton{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 10px;
+    background-color: #fda4af;
+    width: 180px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    color: black;
+}
+
+.newTask:active, .modalButton:active{
+    background-color: #fb7185;
+}
+
+.content{
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    z-index: 5;
+    height: auto;
+    max-width: 800px;
+    width: 90vw;
+    padding: 10px;
+}
+
+.task{
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 1%;
+    justify-content: space-between;
+    width: 90%;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #3f3f46;
+    margin: 10px;
+}
+
+.task:hover{
+    cursor: pointer;
+}
+
+.check{
+    z-index: 100;
+    border-radius: 100%;
+    border: 1px solid black;
+    height: 20px;
+    width: 20px;
+}
+
+.projectName, .title{
+    color: #fda4af;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+#projectEdit .title{
+    font-size: 2rem;
+}
+
+.subGoal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    width: 90%;
+}
+
+.sidebar{
+    box-sizing: border-box;
+    z-index: 3;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 80px;
+    background-color: #171717;
+    transition: all 0.4s ease;
+    overflow-y: hidden;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.top{
+    height: 10%;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: #fda4af;
+}
+
+.sidebar.active{
+    overflow-y: scroll;
+    width: 225px;
+}
+
+#create, .assignment{
+    margin: 0px;
+}
+
+
+.sidebar .fa-map-o{
+    position: absolute;
+    top: 1.2rem;
+    left: 30%;
+    cursor: pointer;
+}
+
+.sidebar.active .fa-map-o{
+    left: 80%;
+}
+
+#dashboard{
+    display: flex;
+    align-items: center;
+    display: none;
+}
+
+.sidebar.active #dashboard{
+    padding-left: 10px;
+    display: inline;
+}
+
+.sidebar ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 50px;
+    padding: 10px;
+}
+
+li{
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.sidebar .navText{
+    display: none;
+}
+
+.sidebar.active ul{
+    align-items: flex-start;
+}
+
+.sidebar.active li{
+    padding: 10px;
+    border-radius: 10px;
+    width: 180px;
+}
+
+.sidebar.active .navText{
+    display:inline;
+    margin-left: 10px;
+}
+
+.fa{
+    font-size: 30px;
+}
+
+.sidebar.active li:hover{
+    background-color: #fda4af;
+    transition: all 0.1s linear;
+    color: black;
+}
+
+.fa-plus-square-o, .fa-info-circle, .fa-pencil-square-o{
+    opacity: 0.4;
+}
+
+.fa-plus-square-o:hover, .fa-info-circle:hover, .fa-pencil-square-o:hover{
+    opacity: 1;
+}
+
+#modal{
+    color: white;
+    display: none !important;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #27272a;
+    border-radius: 10px;
+    border: 2px solid black;
+    z-index: 10;
+    height: 70vh;
+    max-height: 500px;
+    width: 50vw;
+    max-width: 350px;
+
+}
+
+#caution, #addProject{
+    z-index: 58;
+    display: none;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 500;
+    justify-content: space-between;
+    color: #fda4af;
+    background-color: #171717;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    max-height: 150px;
+    max-width: 300px;
+    height: 20vh;
+    width: 40vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#caution.active{
+    display: flex;
+}
+
+#addProject.active{
+    display: flex;
+    align-items: center;
+}
+
+.projectButtons{
+    display: flex;
+    box-sizing: content-box;
+    width: 100%;
+    justify-content: center;
+}
+
+#addProject input{
+    font-size: 16px;
+    height: 20%;
+    width: 80%;
+}
+
+.deleteTask, .keepTask, .cancel, .add{
+    padding: 5px;
+    font-weight: bold;
+    border: none;
+    height: 35px;
+    width: 30%;
+}
+
+.deleteTask, .cancel{
+    color: white;
+    background-color: #ef4444;
+}
+
+.deleteTask:active, .cancel:active{
+    background-color: #dc2626;
+}
+
+.keepTask, .add{
+    color: black;
+    background-color: #4ade80;
+}
+
+.keepTask:active, .add:active{
+    background-color: #22c55e;
+}
+
+#modal.active{
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.fa-close{
+    opacity: 0.4;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.fa-trash{
+    opacity: 0.4;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+.fa-trash:hover{
+    opacity: 1;
+    color: #ef4444;
+}
+
+.fa-close:active{
+    opacity: 1;
+}
+
+input{
+
+    font-size: 1.5rem;
+    margin: 10px;
+    background-color: #e4e4e7;
+    border-radius: 10px;
+    width: 80%;
+    height: 10%;
+    border: 2px solid black;
+}
+
+textarea{
+    border-radius: 10px;
+    margin: 10px;
+}
+
+#desc{
+    resize: none;
+    width: 80%;
+    height: 20%;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+select{
+    border-radius: 10px;
+    margin: 10px;
+    height: 10%;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 80%;
+}
+
+#overlay{
+    z-index: 9;
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.8);
+
+}
+
+#overlay.active{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.check:active{
+    background-color: #4ade80;
+}
+
+
+#message{
+    font-size: 16px;
+    color: white;
+}
+
+#projectEdit{
+    display: none;
+    z-index: 59;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 60vh;
+    width: 30vw;
+    min-width: 250px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color:#27272a;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tinyModal{
+    padding: 10px;
+    z-index: 59;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    height: 70px;
+    width: 200px;
+    background-color:#27272a;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.tinyModal.active{
+    display: flex;
+}
+
+.wildCard{
+    height: 100%;
+    width: 5px;
+}
+
+.tinyModal input{
+    margin: 5px;
+    padding: 5px;
+    height: 30px;
+    font-size: 1rem;
+}
+
+#subGoalSave{
+    border: none;
+    height: 30px;
+    width: 50px;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #4ade80;
+}
+
+#subGoalSave:active{
+    background-color: #22c55e;
+}
+
+#projectEdit.active{
+    display: flex;
+}
+
+.nameChange, .goalCreate, .deleteGoal{
+    display: flex;
+    padding: 0;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#projectEdit button{
+    background-color:#4ade80;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    height: 30%;
+    width: 40%;
+}
+
+#projectEdit button:active{
+    background-color: #22c55e;
+}
+
+#projectEdit input{
+    font-size: 1rem;
+    font-weight: bold;
+    height: 30%;
+}
+
+#projectEdit select{
+    height: 30%;
+    font-size: 1rem;
+}
+
+#projectEdit #delete{
+    background-color:#ef4444;
+}
+
+#projectEdit #delete:active{
+    background-color: #dc2626;
+}
